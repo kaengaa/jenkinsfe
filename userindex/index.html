@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="GOHOTEL">
+    <link rel="shortcut icon" href="/img/images/web_v3/favicon_170822.ico" type="image/x-icon">
+
+    <!-- CSS -->
+    <title>GOHOTEL</title>
+    <link rel="stylesheet" href="/css/common.css" />
+    <!-- <link rel="canonical" href="index.html"> -->
+    <script src="/js/library/jquery-1.12.4.min.js"></script>
+
+
+
+    
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
+<!-- Wrap -->
+<div class="wrap">
+
+
+    <!-- 헤더 -->
+    <header th:fragment="user-headerlogin">
+    <link rel="stylesheet" href="/css/main.css" />
+
+    <section>
+        <h1><a class="" href="/userindex/" title="GOHOTEL">GOHOTEL</a></h1>
+        <button type="button" class="btn_menu nav_open ">메뉴</button>
+        <!--        <button type="button" class="btn_srch srch_open ">검색</button>-->
+        <ul class="gnb_pc" id="nav_bar">
+<!--            <li><a href="/userindex/8">내주변</a></li>-->
+            <li><a href="/userindex/reservation/reservations.html">예약내역</a></li>
+			<li><a href="/userindex/qna/qna.html">문의</a></li>
+            <li><a href="/userindex/more/review.html">후기</a></li>
+            
+
+            <!--            <li><a href="/userindex/user2/login.html">로그인</a></li>-->
+
+        </ul>
+
+
+        <!-- Search -->
+        <div class="srch_bar">
+            <div class="wrap_inp">
+                <input type="text" id="keyword" placeholder="지역, 숙소명" autocomplete="off" />
+                <button type="button" class="btn_srch">검색</button>
+            </div>
+            <button class="btn_cancel" onclick="srch_close()">취소</button>
+        </div>
+        <!-- //Search -->
+
+    </section>
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+ 
+    <script>const sessionId = sessionStorage.getItem('userid');
+    console.log("세션아이디"+sessionId);
+    </script>
+
+
+</header>
+    <!--헤더 끝 -->
+
+
+    <!-- Bg Dimm -->
+    <div class="bg_dimm" onclick="close_layer();">&nbsp;</div>
+    <div class="bg_dimm_prevent">&nbsp;</div>
+
+    <!-- 추천검색어 -->
+    <div class="recommend_srch">
+        <div class="scroll_srch">
+            <div class="scroller">
+                <div class="default" style="display:block">
+                    <strong>추천 검색어</strong>
+                    <ul></ul>
+                </div>
+                <!-- 연관검색어 -->
+                <div class="chain">
+                    <ul></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="gnb_opacity"><button class="btn_close">닫기</button></div>
+    <div class="menu_wrap">
+
+        <div class="menu">
+            <div class="top">
+                <!-- 회원 -->
+                <div class="member">
+                    <div class="mem">
+                            <span class="pic"
+                                  style="background:url('/static/img/profile/ico/ico_22.png') 50% 50% no-repeat;"></span>
+                        <p class="info">사과색깔</p>
+                    </div>
+                    <div class="bot">
+                        <a href="/userindex/point">
+                            <p>0P<br /><span>포인트</span></p>
+                        </a>
+                        <a href="/userindex/coupon">
+                            <p>1장<br /><span>쿠폰함</span></p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Iscroll -->
+            <div class="scroll_nav">
+                <div class="scroller">
+                    <ul>
+                        <li><a href="/userindex/">홈</a></li>
+                        
+                        <li><a href="/userindex/8">내주변</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="/userindex/reservation.reservations.html">예약 내역</a></li>
+                        <li><a href="/userindex/my/mypage.html">내 정보 관리</a></li>
+                    </ul>
+                    <div class="center">
+                        <p>GOHOTEL고객센터</p>
+                        <p><a href="tel:1670-6250">1670-6250</a></p>
+                        <p>오전 9시 - 새벽 3시</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //Mobile Menu -->
+<!-- 세션 정상 수정.ver-->
+<script>
+
+    function logout() {
+        var userid = localStorage.getItem('userid');
+        localStorage.removeItem('userid');
+        sessionStorage.removeItem('userid');
+        window.location.href = "http://localhost:8080/web/Logout.jsp?userid=" + userid
+    };
+
+    $(document).ready(function () {
+        const memEmail = window.location.search.split('=')[1];
+        console.log(memEmail);  // 확인용
+        console.log("localStorage" + localStorage.getItem('userid'));
+        if (localStorage.getItem('userid') != null) {
+            sessionStorage.setItem('userid', localStorage.getItem('userid'));
+            document.getElementById('nav_bar').innerHTML += '<li><a href="#" onclick="logout()">로그아웃</a></li>';
+        } else if (!(memEmail == null || memEmail == '')) {
+            sessionStorage.setItem('userid', memEmail);
+            localStorage.setItem('userid', memEmail);
+            document.getElementById('nav_bar').innerHTML += '<li><a href="#" onclick="logout()">로그아웃</a></li>';
+        } else {
+            document.getElementById('nav_bar').innerHTML += '<li><a href="/userindex/user2/login.html">로그인</a></li>';
+            document.getElementById('nav_bar').innerHTML += '<input type="hidden" id="userid" class="userid">';
+        };
+    });
+
+
+
+</script>
+
+<!-- CSS -->
+
+    <link rel="stylesheet" href="/css/swiper.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/ahn_M_slider.css">
+
+
+
+
+    <!-- Content (상단 배경) -->
+    <div id="content">
+            <span>
+                <div class="ahn_texting animate__animated animate__fadeInDown animate__delay-1s" data-aos="fade-up">
+                    <div class="ahn_t_div">
+                    </div>
+                </div>
+                <div class="main_spot">
+
+                </div>
+            </span>
+
+    </div>
+    <!-- #Content 끝 -->
+
+    <!-- 세션 정상-->
+    <script>
+
+        $(document).ready(function() {
+            const memEmail = $('#memEmail').text();
+            console.log(memEmail);  // 확인용
+            if(!(memEmail==null || memEmail=='')){
+                axios.get('/api/tbmem/session/'+memEmail,{
+
+                }).then(function(response){
+                    console.log(response)
+                    sessionStorage.setItem('userid', response.data);
+                }).catch(function(err){
+                    console.log(err);
+                });
+            };
+        });
+
+    </script>
+    <span id="memEmail" th:text="${session.userid}" style="display: none"></span>
+    <!-- 세션 정상-->
+
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
+    <script src="/js/script/script.js"></script>
+ 
+    <!-- //Main Spot -->
+
+
+        <div class="event_main">
+            <section class="swiper-container">
+                <div class="main_ahnyeonju_1" data-aos="fade-up">
+
+                    <!-- <span class="main_atte_title"></span> -->
+                    <section class="HomePlaceRecommend_container__380T6">
+                        <div class="SubHeader_container__mMQq5">
+                            <div class="SubHeader_titleWrap__3g5at">
+
+                                <div class="SubHeader_aside__1utqv">
+                                    <h2 class="SubHeader_title__1PFTQ">ROOM <span style="color: #050000;">전체보기</span>
+                                    </h2>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper mySwiper" style="padding-bottom:50px;">
+                            <nav class="HomePlaceRecommend_nav__2BMjv">
+                                <div class="HomePlaceRecommend_navItem__1tHAl"><span
+                                        class="HomePlaceRecommend_navItemName__1TRUT">Deluxe Room</span>
+                                </div>
+                                <div class="HomePlaceRecommend_navItem__1tHAl"><span
+                                        class="HomePlaceRecommend_navItemName__1TRUT">Grand Deluxe Room</span></div>
+                                <div class="HomePlaceRecommend_navItem__1tHAl"><span
+                                        class="HomePlaceRecommend_navItemName__1TRUT">Premier Suite Room</span></div>
+                                <div class="HomePlaceRecommend_navItem__1tHAl"><span
+                                        class="HomePlaceRecommend_navItemName__1TRUT">Presidential Suite Room</span></div>
+                            </nav>
+
+                            <div class="HomePlaceRecommend_body__1dkl1"><a href="/userindex/product/1_005.html" class="ThemePlaceItem_container__1Clhm HomePlaceRecommend_bodyItem__dZsES">
+                                    <div class="ThemePlaceItem_image__2_Itg"
+                                            style="background-image: url(/img/hostimage/8acea186-d176-408c-815a-a143b23a40f2_10.jpg)">
+                                    </div>
+                                    <div class="ThemePlaceItem_body__2BjpH">
+                                        <div class="ThemePlaceItem_title__1fyvQ">Deluxe Room</div>
+
+                                        <div class="LeisureRecommendItem_badgesInfo__1KmaW"><span
+                                                class="Blank_ya"></span></div>
+                                        <div class="subhome_priceDiscount__36Nn_">512,000<i>KRW</i></div>
+                                    </div>
+                                </a><a href="/userindex/product/1_006.html"
+                                        class="ThemePlaceItem_container__1Clhm HomePlaceRecommend_bodyItem__dZsES">
+                                    <div class="ThemePlaceItem_image__2_Itg"
+                                            style="background-image: url(/img/hostimage/8b1730aa-6d27-4876-bb9b-97a385d5fbc7_1.jpg)">
+                                    </div>
+                                    <div class="ThemePlaceItem_body__2BjpH">
+                                        <div class="ThemePlaceItem_title__1fyvQ">Grand Deluxe Room
+                                        </div>
+
+                                        <div class="LeisureRecommendItem_badgesInfo__1KmaW"><span
+                                                class="Blank_ya"></span></div>
+
+                                        <div class="subhome_priceDiscount__36Nn_">689,000<i>KRW</i></div>
+                                    </div>
+                                </a><a href="/userindex/product/1_007.html"
+                                        class="ThemePlaceItem_container__1Clhm HomePlaceRecommend_bodyItem__dZsES">
+                                    <div class="ThemePlaceItem_image__2_Itg"
+                                            style="background-image: url(/img/hostimage/b8119df3-c468-4dae-8263-23b28cf070bc_4.jpg)">
+                                    </div>
+                                    <div class="ThemePlaceItem_body__2BjpH">
+                                        <div class="ThemePlaceItem_title__1fyvQ">Premier Suite Room</div>
+
+                                        <div class="LeisureRecommendItem_badgesInfo__1KmaW"><span
+                                                class="Blank_ya"></span></div>
+
+                                        <div class="subhome_priceDiscount__36Nn_">722,000<i>KRW</i></div>
+                                    </div>
+                                </a><a href="/userindex/product/1_008.html"
+                                        class="ThemePlaceItem_container__1Clhm HomePlaceRecommend_bodyItem__dZsES">
+                                    <div class="ThemePlaceItem_image__2_Itg"
+                                            style="background-image: url(/img/hostimage/84374680-8671-4456-959e-40b6df4122b2_3.jpg)">
+                                    </div>
+                                    <div class="ThemePlaceItem_body__2BjpH">
+                                        <div class="ThemePlaceItem_title__1fyvQ">Presidential Suite Room
+                                        </div>
+
+                                        <div class="LeisureRecommendItem_badgesInfo__1KmaW"><span
+                                                class="Blank_ya"></span></div>
+
+                                        <div class="subhome_priceDiscount__36Nn_">899,000<i>KRW</i></div>
+                                    </div>
+
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>            
+
+                <div class="mainbox" data-aos="fade-up">
+                    <div class="conbox01">
+                        <p class="mainTit"><span>pt</span><img src="/img/mainimages/letsgetsocialfont.png"
+                                                               alt="소셜폰트이미지" class="mainTit_img"><span>pt</span></p>
+                        <div class="snsbox_div">
+                            <ul class="snsbox">
+                                <li>
+                                    <a href="https://www.facebook.com/goodchoiceofficial/" target="_blank"><img
+                                            src="/img/mainimages/sns01_red.png" alt="facebook"
+                                            class="animatedhover animate__animated animate__bounce"></a>
+
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/goodchoice_official/" target="_blank"><img
+                                            src="/img/mainimages/sns02_red.png" alt="instagram"
+                                            class="animatedhover animate__animated animate__bounce"></a>
+
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com/c/GoodchoiceKrvideo/featured"
+                                       target="_blank"><img src="/img/mainimages/sns04_red.png" alt="Youtube"
+                                                            class="animatedhover animate__animated animate__bounce"></a>
+
+                                </li>
+                                <li>
+                                    <a href="https://blog.gccompany.co.kr/" target="_blank"><img
+                                            src="/img/mainimages/naverpost_red.png" alt="naverpost"
+                                            class="animatedhover animate__animated animate__bounce"></a>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+       
+
+            </section>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- 푸터 -->
+<footer th:fragment="user-footer">
+    <div class="align">
+        <ul class="link">
+            <li><a href="http://www.withinnovation.co.kr/" target="_blank">회사소개</a><span>|</span></li>
+            <li><a href="/userindex/terms" data-default="term">이용약관</a><span>|</span></li>
+            <li><a href="/userindex/privacy" data-default="privacy">개인정보처리방침</a><span>|</span></li>
+            <li><button type="button" onclick="pop_licence();return false;">사업자 정보확인</button><span>|</span></li>
+            <li><a href="//ad.goodchoice.kr/" target="_blank">GOHOTEL 마케팅센터</a><span>|</span></li>
+        </ul>
+        <p>
+            <b>고객센터 1122-3344</b>
+            오전 9시 - 새벽 3시
+        </p>
+        <address>
+            <span>(주) 이응주식회사</span>
+            주소 : 서울특별시 강남구 봉은사로 479, 479타워 11층<br />
+            대표이사 : 윤성훈 | 사업자등록번호: 742-86-00224<br />
+            통신판매번호 : 2022-양주사랑-12345 | 관광사업자 등록번호: 제1026-24호<br />
+            전화번호 : 1122-3344<br />
+            전자우편주소 : help@goodchoice.kr<br />
+            Copyright GC COMPANY Corp. All rights reserved.
+        </address>
+
+
+        <div class="ico">
+            <a href="https://play.google.com/store/apps/details?id=kr.goodchoice.abouthere"  class="footer_applink"><img src="/img/mainimages/googleplaystoreicon.png" alt="구글플레이스토어" class="footer_googleplaystore"></a>
+            <a href="https://apps.apple.com/kr/app/yeogieottae-1deung-sugbag/id884043462?ign-mpt=uo%3D2" class="footer_applink"><img src="/img/mainimages/applestoreicon.png" alt="앱스토어"
+                                                                                                                                     class="footer_appstore"
+            ></a>
+        </div>
+   
+
+    </div>
+
+</footer>
+<!--푸터 끝 -->
+
+
+
+
+<!-- 상단으로 -->
+<button class="btn_go_top" onclick="moveTop();">상단으로</button>
+
+<!-- //Wrap -->
+
+<!-- Script -->
+<!-- Library -->
+<script src="/js/library/jquery.cookie.js"></script>
+<script src="/js/library/jquery.lazyload.js"></script>
+<script src="/js/library/iscroll.js"></script>
+
+<!-- Service -->
+<script src="/js/service/common.js"></script>
+<script src="/js/service/geolocation.js"></script>
+
+<!-- Module -->
+<script src="/js/modules/dialogPopup.js"></script>
+
+<!-- Page Script -->
+<script src="/js/library/owl.carousel.min.js"></script>
+<script src="/js/library/swiper.min.js"></script>
+<script src="/js/library/iscroll.js"></script>
+<script src="/js/service/main.js"></script>
+<script src="/js/service/reservation.js"></script>
+
+<!-- Body Spinner -->
+<!-- <div class="spinner show"><span></span></div> -->
+
+<script>
+    AOS.init();
+</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+</body>
+
+</html>

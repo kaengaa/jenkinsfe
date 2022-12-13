@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="h-100" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="A growing collection of ready to use components for the CSS framework Bootstrap 5">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/background.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/balloon.png">
+  <meta name="author" content="Holger Koenemann">
+  <meta name="generator" content="Eleventy v2.0.0">
+  <meta name="HandheldFriendly" content="true">
+  <title>Deluxe Room</title>
+  
+  <link rel="stylesheet" href="../css/theme.css">
+  <link rel="stylesheet" type="text/css" href="../css/list.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/sigup.css">
+ 
+
+  <style>
+    /* inter-300 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local(''),
+        url('./fonts/inter-v12-latin-300.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('./fonts/inter-v12-latin-300.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: local(''),
+        url('./fonts/inter-v12-latin-500.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('./fonts/inter-v12-latin-500.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: local(''),
+        url('./fonts/inter-v12-latin-700.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('./fonts/inter-v12-latin-700.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+  </style>
+
+</head>
+
+
+  <main>
+    <div class="w-100 overflow-hidden bg-gray-100" id="top">
+
+      <div class="container position-relative">
+        <div class="col-12 col-lg-8 mt-0 h-100 position-absolute top-0 end-0 bg-cover aos-init aos-animate"
+          data-aos="fade-left" style="background-image: url(../images/background.jpg);">
+
+        </div>
+        <div class="row">
+
+          <div class="col-lg-7 py-vh-6 position-relative aos-init aos-animate" data-aos="fade-right">
+            <h1 class="display-1 fw-bold mt-5">Deluxe Room</h1>
+            <p class="lead">예약페이지</p>
+
+            <button class="booking-btn" id="booking">날짜선택</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </div>
+    <div class="py-vh-5 w-100 overflow-hidden" id="services">
+      <div class="container">
+        <div class="row d-flex justify-content-end">
+          <div class="col-lg-8 aos-init" data-aos="fade-down">
+            <h2 class="display-6">예약일정</h2>
+          </div>
+        </div>
+        <div class="row d-flex align-items-center">
+          <div class="col-md-6 col-lg-4 aos-init" data-aos="fade-up" data-aos-delay="200">
+            <span class="h5 fw-lighter">일정</span>
+            <h3 class="py-5 border-top border-dark">2022.11.22 </br>
+              12:00</h3>
+
+          </div>
+
+          <div class="col-md-6 col-lg-4 py-vh-4 pb-0 aos-init" data-aos="fade-up" data-aos-delay="400">
+            <span class="h5 fw-lighter">금액</span>
+            <h3 class="py-5 border-top border-dark">512,000 KRW</h3>
+
+          </div>
+
+
+
+
+  </main>
+
+  <div class="modal fade" id="section-filter" tabindex="-1" role="dialog" data-controller="design" data-action="modal_example" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-filter" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">예약</h4>
+
+            </div>
+            <form class="modal-body">
+              <div class="form-group">
+                <span class="form-label">GOHOTEL</span>
+                <p>
+                    Deluxe Room
+                </p>
+                <p>
+                  예약날짜
+                </p>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input class="form-control" type="date" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    </select>
+                    <span class="select-arrow"></span>
+                  </div>
+                </div>
+              </div>
+            </form>
+        
+
+
+            <div class="modal-footer">
+                <br><button type="button" class="btn btn-primary">예약</button>
+                <button type="button" class="btn btn-primary">저장</button>
+                <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal" id="cancle">취소</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+  
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../js/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800, // values from 0 to 3000, with step 50ms
+    });
+  </script>
+
+  <script>
+    const booking_btn = document.getElementById('booking');
+    booking_btn.addEventListener('click', function () {
+      const section_filter_div = document.getElementById('section-filter');
+      section_filter_div.className += ' show';
+      section_filter_div.style.display = "block";
+    });
+    const btn_secondary = document.getElementById('cancle');
+    btn_secondary.addEventListener('click', function () {
+      const section_filter_div = document.getElementById('section-filter');
+      section_filter_div.className = 'modal fade ';
+      section_filter_div.style.display = "none";
+    });
+    
+
+
+    let scrollpos = window.scrollY;
+    const header = document.querySelector(".navbar");
+    const header_height = header.offsetHeight;
+
+    const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm");
+    const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm");
+
+    window.addEventListener('scroll', function () {
+      scrollpos = window.scrollY;
+
+      if (scrollpos >= header_height) { add_class_on_scroll(); }
+      else { remove_class_on_scroll(); }
+
+      console.log(scrollpos);
+    });
+
+
+  </script>
+
+
+
+</body>
+
+</html>
