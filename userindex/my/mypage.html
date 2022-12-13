@@ -208,37 +208,6 @@
 	</div>
 	        <!-- //Mobile Menu -->
 
-            <!-- 세션 정상 수정.ver-->
-            <script>
-
-                function logout() {
-                    var userid = localStorage.getItem('userid');
-                    localStorage.removeItem('userid');
-                    sessionStorage.removeItem('userid');
-                    window.location.href = "http://localhost:8080/web/Logout.jsp?userid=" + userid
-                };
-
-                $(document).ready(function () {
-                    const memEmail = window.location.search.split('=')[1];
-                    console.log(memEmail);  // 확인용
-                    console.log("localStorage" + localStorage.getItem('userid'));
-                    if (localStorage.getItem('userid') != null) {
-                        sessionStorage.setItem('userid', localStorage.getItem('userid'));
-                        document.getElementById('nav_bar').innerHTML += '<li><a href="#" onclick="logout()">로그아웃</a></li>';
-                    } else if (!(memEmail == null || memEmail == '')) {
-                        sessionStorage.setItem('userid', memEmail);
-                        localStorage.setItem('userid', memEmail);
-                        document.getElementById('nav_bar').innerHTML += '<li><a href="#" onclick="logout()">로그아웃</a></li>';
-                    } else {
-                        document.getElementById('nav_bar').innerHTML += '<li><a href="/userindex/user2/login.html">로그인</a></li>';
-                        document.getElementById('nav_bar').innerHTML += '<input type="hidden" id="userid" class="userid">';
-                    };
-                });
-
-
-
-            </script>
-
         <!-- CSS -->
 	<link rel="stylesheet" href="/css/my.css" />
 	<link rel="stylesheet" href="/css/withdraw.css" />
