@@ -96,7 +96,7 @@
                         var userid = localStorage.getItem('userid');
                         localStorage.removeItem('userid');
                         sessionStorage.removeItem('userid');
-                        window.location.href = "http://localhost:8080/web/Logout.jsp?userid=" + userid
+                        window.location.href = "https://www.ec2.n-e.kr/Logout.jsp?userid=" + userid
                     };
 
                     $(document).ready(function () {
@@ -334,7 +334,7 @@
             </div>
 
             <div>
-                <form class="mt-5 p-5" action="http://localhost:8080/web/RoomBookCreate.jsp">
+                <form class="mt-5 p-5" action="https://www.ec2.n-e.kr/RoomBookCreate.jsp">
                     <input type="hidden" id="ridx" name="ridx" />
                     체크인 <input class="form-control p-2 border mr-3" name="startbook" type="date" required>
                     체크아웃 <input class="form-control p-2 border mr-3" name="endbook" type="date" required>
