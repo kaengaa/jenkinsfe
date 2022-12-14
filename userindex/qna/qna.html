@@ -260,7 +260,7 @@
                     var userid = localStorage.getItem('userid');
                     localStorage.removeItem('userid');
                     sessionStorage.removeItem('userid');
-                    window.location.href = "http://localhost:8080/web/Logout.jsp?userid=" + userid
+                    window.location.href = "ooo-was-lb-15022429-22c98dbe661e.kr.lb.naverncp.com/Logout.jsp?userid=" + userid
                 };
 
                 $(document).ready(function () {
@@ -325,7 +325,7 @@
 									<h4>1:1 문의 내역을 남겨주세요.</h4><br><br>
 									<div id="write_area">
 										<form enctype="multipart/form-data"
-											action="http://localhost:8080/web/QnaCreate.jsp">
+											action="ooo-was-lb-15022429-22c98dbe661e.kr.lb.naverncp.com/QnaCreate.jsp">
 											<div id="in_title">
 												<textarea name="title" id="utitle" rows="1" cols="55" placeholder="제목"
 													maxlength="100" required></textarea>
@@ -341,7 +341,7 @@
 												userid = localStorage.getItem('userid')
 												document.getElementById('in_title').innerHTML += '<input type="hidden" name="uid" value='+ userid + '>';
 											</script>
-											<div class="ahn_re_title_p">
+											<div class="bt_se">
 												<br><br><button type="submit">글 작성</button><br><br>
 											</div>
 										</form>

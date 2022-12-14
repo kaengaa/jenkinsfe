@@ -153,7 +153,7 @@
                 var userid = localStorage.getItem('userid');
                 localStorage.removeItem('userid');
                 sessionStorage.removeItem('userid');
-                window.location.href = "http://localhost:8080/web/Logout.jsp?userid=" + userid
+                window.location.href = "ooo-was-lb-15022429-22c98dbe661e.kr.lb.naverncp.com/Logout.jsp?userid=" + userid
             };
 
             $(document).ready(function () {
@@ -422,7 +422,7 @@
     <script>
         
         document.cookie = 'JSESSIONID='+sessionStorage.getItem('userid');
-        axios({method: 'get', url: 'http://localhost:8080/web/MemberAccountRoomBookLookup.jsp', withCredentials: true})
+        axios({method: 'get', url: 'ooo-was-lb-15022429-22c98dbe661e.kr.lb.naverncp.com/MemberAccountRoomBookLookup.jsp', withCredentials: true})
             .then((res) => {
 
                 var json = res.data;
