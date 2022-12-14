@@ -325,12 +325,11 @@
 									<h4>1:1 문의 내역을 남겨주세요.</h4><br><br>
 									<div id="write_area">
 										<form enctype="multipart/form-data"
-											action="write_ok.php?board_id=<?echo $board_id;?>" method="post">
+											action="http://localhost:8080/web/QnaCreate.jsp">
 											<div id="in_title">
 												<textarea name="title" id="utitle" rows="1" cols="55" placeholder="제목"
 													maxlength="100" required></textarea>
 											</div>
-
 
 											<div class="wi_line"></div>
 											<br><br>
@@ -338,7 +337,10 @@
 												<textarea name="content" id="ucontent" placeholder="내용"
 													required></textarea>
 											</div>
-
+											<script>
+												userid = localStorage.getItem('userid')
+												document.getElementById('in_title').innerHTML += '<input type="hidden" name="uid" value='+ userid + '>';
+											</script>
 											<div class="bt_se">
 												<br><br><button type="submit">글 작성</button><br><br>
 											</div>

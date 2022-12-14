@@ -83,14 +83,45 @@
                         <li><a href="/userindex/reservation/reservations.html">예약내역</a></li>
                         <li><a href="/userindex/qna/qna.html">문의</a></li>
                         <li><a href="/userindex/more/review.html">후기</a></li>
-                        <li><a href="/userindex/user2/login.html">로그인</a></li>
-                        
-                        <input type="hidden" id="userid" class="userid">
 
                         <!--            <li><a href="/userindex/user2/login.html">로그인</a></li>-->
 
                     </ul>
 
+                                    <!-- //Mobile Menu -->
+
+                <!-- 세션 정상 수정.ver-->
+                <script>
+
+                    function logout() {
+                        var userid = localStorage.getItem('userid');
+                        localStorage.removeItem('userid');
+                        sessionStorage.removeItem('userid');
+                        window.location.href = "http://localhost:8080/web/Logout.jsp?userid=" + userid
+                    };
+
+                    $(document).ready(function () {
+                        const memEmail = window.location.search.split('=')[1];
+                        console.log(memEmail);  // 확인용
+                        console.log("localStorage" + localStorage.getItem('userid'));
+                        if (localStorage.getItem('userid') != null) {
+                            sessionStorage.setItem('userid', localStorage.getItem('userid'));
+                            document.getElementById('nav_bar').innerHTML += '<li><a href="#" onclick="logout()">로그아웃</a></li>';
+                        } else if (!(memEmail == null || memEmail == '')) {
+                            sessionStorage.setItem('userid', memEmail);
+                            localStorage.setItem('userid', memEmail);
+                            document.getElementById('nav_bar').innerHTML += '<li><a href="#" onclick="logout()">로그아웃</a></li>';
+                        } else {
+                            document.getElementById('nav_bar').innerHTML += '<li><a href="/userindex/user2/login.html">로그인</a></li>';
+                            document.getElementById('nav_bar').innerHTML += '<input type="hidden" id="userid" class="userid">';
+                        };
+                    });
+
+
+
+                </script>
+
+                <!-- CSS -->
 
                     <!-- Search -->
                     <div class="srch_bar">
@@ -301,18 +332,20 @@
                 </div>
 
                 <div>
-                    <form class="mt-5 p-5">
-						체크인 <input class="form-control p-2 border mr-3" type="date" required>
-                        체크아웃 <input class="form-control p-2 border mr-3" type="date" required>
-						<input type="submit" class="bg-red-500 py-3 px-5 rounded text-white" value="저장">
-					</form>
+                    <form class="mt-5 p-5" action="http://localhost:8080/web/RoomBookCreate.jsp">
+                        <input type="hidden" id="ridx" name="ridx" />
+                        체크인 <input class="form-control p-2 border mr-3" name="startbook" type="date" required>
+                        체크아웃 <input class="form-control p-2 border mr-3" name="endbook" type="date" required>
+                        <input type="submit" class="bg-red-500 py-3 px-5 rounded text-white" value="저장">
+                    </form>
                 </div>
             </div>
             <div class="py-vh-5 w-100 overflow-hidden" id="services">
                 <div class="container">
                    
-
-
+                    <script>
+                        document.getElementById('ridx').value=window.location.search.split('=')[1];
+                    </script>
 
 
                         <script src="../js/bootstrap.bundle.min.js"></script>

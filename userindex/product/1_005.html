@@ -1,9 +1,9 @@
 <!doctype html>
-    <html lang="ko">
+<html lang="ko">
 
-    <!-- Mirrored from www.goodchoice.kr/product/detail?ano=2084&adcno=1&sel_date=2021-08-17&sel_date2=2021-08-18 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Aug 2021 17:08:36 GMT -->
-    <!-- Added by HTTrack -->
-    <!-- 
+<!-- Mirrored from www.goodchoice.kr/product/detail?ano=2084&adcno=1&sel_date=2021-08-17&sel_date2=2021-08-18 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Aug 2021 17:08:36 GMT -->
+<!-- Added by HTTrack -->
+<!-- 
           <span class="ahn_di_span"></span>
         데이터가 들어가는 부분은 .ahn_di_span span태그를 감아뒀습니다.
         스타일같은거 적용 하나도 안된거니까 
@@ -13,138 +13,170 @@
         숙박정보에 .half 쪽에 .ended 가 추가 되면 비활성화 상태가 됨(버튼과 가격이 칙칙해짐 근데 예약으로는 가짐주의)
     -->
 
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-            content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta http-equiv="Content-Type">
-        <meta name="csrf-name" content="yeogi_token">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type">
+    <meta name="csrf-name" content="yeogi_token">
 
-        <meta name="description" content="GOHOTEL">
+    <meta name="description" content="GOHOTEL">
 
-        <link rel="shortcut icon" href="/userindex/img/시그니엘2.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/userindex/img/시그니엘2.png" type="image/x-icon">
 
-        <!-- CSS -->
-        <title>GOHOTEL</title>
-        <link rel="stylesheet" href="/css/common.css" />
-        <!-- <link rel="canonical" href="detail7bfc.html?ano=2084"> -->
-        <script type="text/javascript" src="/js/library/jquery-1.12.4.min.js"></script>
+    <!-- CSS -->
+    <title>GOHOTEL</title>
+    <link rel="stylesheet" href="/css/common.css" />
+    <!-- <link rel="canonical" href="detail7bfc.html?ano=2084"> -->
+    <script type="text/javascript" src="/js/library/jquery-1.12.4.min.js"></script>
 
-        <script>
-            var _BASE_URL = '/index.html';
-            var _MOBILE = 'W';
-            var _KAKAOTALK_APP_KEY = 'f6ffb505bb11d7cc3584d443ce35f704';
-            var _FACEBOOK_APP_ID = '607467975974643';
-        </script>
-        <script>
-            (function (a, b, c) {
-                if (c in b && b[c]) {
-                    var d, e = a.location,
-                        f = /^(a|html)$/i;
-                    a.addEventListener("click", function (a) {
-                        d = a.target;
-                        while (!f.test(d.nodeName)) d = d.parentNode;
-                        "href" in d && (d.href.indexOf("http") || ~d.href.indexOf(e.host)) && (a
-                            .preventDefault(), e.href = d.href)
-                    }, !1)
-                }
-            })(document, window.navigator, "standalone")
-        </script>
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
+    <script>
+        var _BASE_URL = '/index.html';
+        var _MOBILE = 'W';
+        var _KAKAOTALK_APP_KEY = 'f6ffb505bb11d7cc3584d443ce35f704';
+        var _FACEBOOK_APP_ID = '607467975974643';
+    </script>
+    <script>
+        (function (a, b, c) {
+            if (c in b && b[c]) {
+                var d, e = a.location,
+                    f = /^(a|html)$/i;
+                a.addEventListener("click", function (a) {
+                    d = a.target;
+                    while (!f.test(d.nodeName)) d = d.parentNode;
+                    "href" in d && (d.href.indexOf("http") || ~d.href.indexOf(e.host)) && (a
+                        .preventDefault(), e.href = d.href)
+                }, !1)
+            }
+        })(document, window.navigator, "standalone")
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-    <body>
-        <!--	a태그 클릭시 넘어와야 하는 값-->
-        <!--안연주 ID값 넘어옴-->
-        <input type="hidden" id="id" th:value="${id}">
-        <input type="hidden" id="tbMemId" th:value="${tbMemId}">
-        <input type="hidden" id="tbhostId" class="tbhostId">
-        <!--찜 했는지 확인 여부-->
-        <input type="hidden" id="zzim_overlap" class="zzim_overlap">
-        <input type="hidden" id="zzimiddel" class="zzimiddel">
-
-
-        <!-- Wrap -->
-        <div class="wrap">
-
-            <!-- 헤더 -->
-            <header th:fragment="user-headerlogin">
-                <link rel="stylesheet" href="/css/main.css" />
-
-                <section>
-                    <h1><a class="" href="/userindex/" title="GOHOTEL">GOHOTEL</a></h1>
-                    <button type="button" class="btn_menu nav_open ">메뉴</button>
-                    <!--        <button type="button" class="btn_srch srch_open ">검색</button>-->
-                    <ul class="gnb_pc" id="nav_bar">
-                        <!--            <li><a href="/userindex/8">내주변</a></li>-->
-                        <li><a href="/userindex/reservation/reservations.html">예약내역</a></li>
-                        <li><a href="/userindex/qna/qna.html">문의</a></li>
-                        <li><a href="/userindex/more/review.html">후기</a></li>
-                        <li><a href="/userindex/user2/login.html">로그인</a></li>
-
-                        <input type="hidden" id="userid" class="userid">
-
-                        <!--            <li><a href="/userindex/user2/login.html">로그인</a></li>-->
-
-                    </ul>
+<body>
+    <!--	a태그 클릭시 넘어와야 하는 값-->
+    <!--안연주 ID값 넘어옴-->
+    <input type="hidden" id="id" th:value="${id}">
+    <input type="hidden" id="tbMemId" th:value="${tbMemId}">
+    <input type="hidden" id="tbhostId" class="tbhostId">
+    <!--찜 했는지 확인 여부-->
+    <input type="hidden" id="zzim_overlap" class="zzim_overlap">
+    <input type="hidden" id="zzimiddel" class="zzimiddel">
 
 
-                    <!-- Search -->
-                    <div class="srch_bar">
-                        <div class="wrap_inp">
-                            <input type="text" id="keyword" placeholder="지역, 숙소명" autocomplete="off" />
-                            <button type="button" class="btn_srch">검색</button>
-                        </div>
-                        <button class="btn_cancel" onclick="srch_close()">취소</button>
-                    </div>
-                    <!-- //Search -->
+    <!-- Wrap -->
+    <div class="wrap">
 
-                </section>
+        <!-- 헤더 -->
+        <header th:fragment="user-headerlogin">
+            <link rel="stylesheet" href="/css/main.css" />
+
+            <section>
+                <h1><a class="" href="/userindex/" title="GOHOTEL">GOHOTEL</a></h1>
+                <button type="button" class="btn_menu nav_open ">메뉴</button>
+                <!--        <button type="button" class="btn_srch srch_open ">검색</button>-->
+                <ul class="gnb_pc" id="nav_bar">
+                    <!--            <li><a href="/userindex/8">내주변</a></li>-->
+                    <li><a href="/userindex/reservation/reservations.html">예약내역</a></li>
+                    <li><a href="/userindex/qna/qna.html">문의</a></li>
+                    <li><a href="/userindex/more/review.html">후기</a></li>
 
 
-                <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+                    <!--            <li><a href="/userindex/user2/login.html">로그인</a></li>-->
 
-                <script>const sessionId = sessionStorage.getItem('userid');
-                    console.log("세션아이디" + sessionId);
+                </ul>
+
+                <!-- //Mobile Menu -->
+
+                <!-- 세션 정상 수정.ver-->
+                <script>
+
+                    function logout() {
+                        var userid = localStorage.getItem('userid');
+                        localStorage.removeItem('userid');
+                        sessionStorage.removeItem('userid');
+                        window.location.href = "http://localhost:8080/web/Logout.jsp?userid=" + userid
+                    };
+
+                    $(document).ready(function () {
+                        const memEmail = window.location.search.split('=')[1];
+                        console.log(memEmail);  // 확인용
+                        console.log("localStorage" + localStorage.getItem('userid'));
+                        if (localStorage.getItem('userid') != null) {
+                            sessionStorage.setItem('userid', localStorage.getItem('userid'));
+                            document.getElementById('nav_bar').innerHTML += '<li><a href="#" onclick="logout()">로그아웃</a></li>';
+                        } else if (!(memEmail == null || memEmail == '')) {
+                            sessionStorage.setItem('userid', memEmail);
+                            localStorage.setItem('userid', memEmail);
+                            document.getElementById('nav_bar').innerHTML += '<li><a href="#" onclick="logout()">로그아웃</a></li>';
+                        } else {
+                            document.getElementById('nav_bar').innerHTML += '<li><a href="/userindex/user2/login.html">로그인</a></li>';
+                            document.getElementById('nav_bar').innerHTML += '<input type="hidden" id="userid" class="userid">';
+                        };
+                    });
+
+
+
                 </script>
 
+                <!-- CSS -->
 
-            </header>
+                <!-- Search -->
+                <div class="srch_bar">
+                    <div class="wrap_inp">
+                        <input type="text" id="keyword" placeholder="지역, 숙소명" autocomplete="off" />
+                        <button type="button" class="btn_srch">검색</button>
+                    </div>
+                    <button class="btn_cancel" onclick="srch_close()">취소</button>
+                </div>
+                <!-- //Search -->
 
-            <!-- Bg Dimm -->
-            <div class="bg_dimm" onclick="close_layer();">&nbsp;</div>
-            <div class="bg_dimm_prevent">&nbsp;</div>
+            </section>
 
-            <!-- 추천검색어 -->
-            <div class="recommend_srch">
-                <div class="scroll_srch">
-                    <div class="scroller">
-                        <div class="default" style="display:block">
-                            <strong>추천 검색어</strong>
-                            <ul></ul>
-                        </div>
-                        <!-- 연관검색어 -->
-                        <div class="chain">
-                            <ul></ul>
-                        </div>
+
+            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+            <script>const sessionId = sessionStorage.getItem('userid');
+                console.log("세션아이디" + sessionId);
+            </script>
+
+
+        </header>
+
+        <!-- Bg Dimm -->
+        <div class="bg_dimm" onclick="close_layer();">&nbsp;</div>
+        <div class="bg_dimm_prevent">&nbsp;</div>
+
+        <!-- 추천검색어 -->
+        <div class="recommend_srch">
+            <div class="scroll_srch">
+                <div class="scroller">
+                    <div class="default" style="display:block">
+                        <strong>추천 검색어</strong>
+                        <ul></ul>
+                    </div>
+                    <!-- 연관검색어 -->
+                    <div class="chain">
+                        <ul></ul>
                     </div>
                 </div>
             </div>
+        </div>
 
 
 
-            <!-- CSS -->
-            <link rel="stylesheet" href="/css/owl.carousel.css" />
-            <link rel="stylesheet" href="/css/swiper.css" />
-            <link rel="stylesheet" href="/css/theme_icon.css" />
-            <link rel="stylesheet" href="/css/jquery-ui.css" />
-            <link rel="stylesheet" href="/css/ahn_product.css" />
-            <link rel="stylesheet" href="/css/ahn_heartAnimationCss.css" />
+        <!-- CSS -->
+        <link rel="stylesheet" href="/css/owl.carousel.css" />
+        <link rel="stylesheet" href="/css/swiper.css" />
+        <link rel="stylesheet" href="/css/theme_icon.css" />
+        <link rel="stylesheet" href="/css/jquery-ui.css" />
+        <link rel="stylesheet" href="/css/ahn_product.css" />
+        <link rel="stylesheet" href="/css/ahn_heartAnimationCss.css" />
 
-            <script type="application/ld+json">
+        <script type="application/ld+json">
 				{
 					"@context": "http://schema.org",
 					"@type": "LocalBusiness",
@@ -165,276 +197,284 @@
 					}
 				}
 			</script>
-            <!-- Content  -->
-            <div id="content" class="detail  motel_room">
-                <!-- 비제휴점 inert_room 클래스 추가 -->
+        <!-- Content  -->
+        <div id="content" class="detail  motel_room">
+            <!-- 비제휴점 inert_room 클래스 추가 -->
 
-                <!-- Top -->
-                <div class="top">
+            <!-- Top -->
+            <div class="top">
 
-                    <!-- Left -->
-                    <div class="left">
+                <!-- Left -->
+                <div class="left">
+                    <span class="ahn_di_span">
+
+                        <!-- Gallery (PC) -->
                         <span class="ahn_di_span">
+                            <div class="gallery_pc">
+                                <!-- Image Size : 490 x 348 -->
 
-                            <!-- Gallery (PC) -->
-                            <span class="ahn_di_span">
-                                <div class="gallery_pc">
-                                    <!-- Image Size : 490 x 348 -->
+                                <!-- Swiper -->
+                                <div class="swiper-container gallery-top">
+                                    <ul class="swiper-wrapper ">
+                                        <li class="swiper-slide ahn_img0">
+                                            <img data-src="/userindex/img/시그니엘2.jpg" alt="GOHOTEL"
+                                                class="swiper-lazy" />
+                                        </li>
+                                        <li class="swiper-slide ahn_img1">
+                                            <img data-src="//image.goodchoice.kr/resize_490x348/affiliate/2016/05/24/5743fc844448d.jpg"
+                                                alt="GOHOTEL" class="swiper-lazy" />
+                                        </li>
+                                        <li class="swiper-slide ahn_img2">
+                                            <img data-src="/userindex/img/이미지100.jpg" alt="GOHOTEL | 로얄스위트"
+                                                class="swiper-lazy" />
+                                        </li>
+                                        <li class="swiper-slide ahn_img3">
+                                            <img data-src="/userindex/img/이미지101.jpg" alt="GOHOTEL | 로얄스위트"
+                                                class="swiper-lazy" />
+                                        </li>
 
-                                    <!-- Swiper -->
-                                    <div class="swiper-container gallery-top">
-                                        <ul class="swiper-wrapper ">
-                                            <li class="swiper-slide ahn_img0">
-                                                <img data-src="/userindex/img/시그니엘2.jpg" alt="GOHOTEL"
-                                                    class="swiper-lazy" />
-                                            </li>
-                                            <li class="swiper-slide ahn_img1">
-                                                <img data-src="//image.goodchoice.kr/resize_490x348/affiliate/2016/05/24/5743fc844448d.jpg"
-                                                    alt="GOHOTEL" class="swiper-lazy" />
-                                            </li>
-                                            <li class="swiper-slide ahn_img2">
-                                                <img data-src="/userindex/img/이미지100.jpg" alt="GOHOTEL | 로얄스위트"
-                                                    class="swiper-lazy" />
-                                            </li>
-                                            <li class="swiper-slide ahn_img3">
-                                                <img data-src="/userindex/img/이미지101.jpg" alt="GOHOTEL | 로얄스위트"
-                                                    class="swiper-lazy" />
-                                            </li>
+                                        <!--                                    <li class="swiper-slide ahn_img1"></li>-->
+                                        <!--                                     <li class="swiper-slide ahn_img0"></li>-->
+                                        <!--                                    <li class="swiper-slide ahn_img1"></li>-->
+                                        <!--                                      <li class="swiper-slide ahn_img0"></li>-->
+                                        <!--                                    <li class="swiper-slide ahn_img1"></li>-->
+                                        <!--                                    <li class="swiper-slide"><img-->
+                                        <!--                                            data-src="/mainimages/gochank.jpg"-->
+                                        <!--                                            alt="역삼 컬리넌 | 로얄스위트" class="swiper-lazy" /></li>-->
+                                        <!--                                    <li class="swiper-slide"><img-->
+                                        <!--                                            data-src="//image.goodchoice.kr/resize_490x348/adimg_new/2084/13542/2cb69425b6745a6d3b32fd0e997b62a2.jpg"-->
+                                        <!--                                            alt="역삼 컬리넌 | 로얄스위트" class="swiper-lazy" /></li>-->
+                                        <!--                                     <li class="swiper-slide"><img-->
+                                        <!--                                             data-src="/mainimages/gochank.jpg"-->
+                                        <!--                                             alt="역삼 컬리넌 | 로얄스위트" class="swiper-lazy" /></li>-->
+                                        <!--                                    <li class="swiper-slide"><img-->
+                                        <!--                                            data-src="//image.goodchoice.kr/resize_490x348/adimg_new/2084/13542/2cb69425b6745a6d3b32fd0e997b62a2.jpg"-->
+                                        <!--                                            alt="역삼 컬리넌 | 로얄스위트" class="swiper-lazy" /></li>-->
 
-                                            <!--                                    <li class="swiper-slide ahn_img1"></li>-->
-                                            <!--                                     <li class="swiper-slide ahn_img0"></li>-->
-                                            <!--                                    <li class="swiper-slide ahn_img1"></li>-->
-                                            <!--                                      <li class="swiper-slide ahn_img0"></li>-->
-                                            <!--                                    <li class="swiper-slide ahn_img1"></li>-->
-                                            <!--                                    <li class="swiper-slide"><img-->
-                                            <!--                                            data-src="/mainimages/gochank.jpg"-->
-                                            <!--                                            alt="역삼 컬리넌 | 로얄스위트" class="swiper-lazy" /></li>-->
-                                            <!--                                    <li class="swiper-slide"><img-->
-                                            <!--                                            data-src="//image.goodchoice.kr/resize_490x348/adimg_new/2084/13542/2cb69425b6745a6d3b32fd0e997b62a2.jpg"-->
-                                            <!--                                            alt="역삼 컬리넌 | 로얄스위트" class="swiper-lazy" /></li>-->
-                                            <!--                                     <li class="swiper-slide"><img-->
-                                            <!--                                             data-src="/mainimages/gochank.jpg"-->
-                                            <!--                                             alt="역삼 컬리넌 | 로얄스위트" class="swiper-lazy" /></li>-->
-                                            <!--                                    <li class="swiper-slide"><img-->
-                                            <!--                                            data-src="//image.goodchoice.kr/resize_490x348/adimg_new/2084/13542/2cb69425b6745a6d3b32fd0e997b62a2.jpg"-->
-                                            <!--                                            alt="역삼 컬리넌 | 로얄스위트" class="swiper-lazy" /></li>-->
-
-                                        </ul>
-                                    </div>
-                                    <div class="swiper-container gallery-thumbs">
-                                        <ul class="swiper-wrapper ">
-                                            <li class="swiper-slide ahn_img0"> <img data-src="/userindex/img/시그니엘2.jpg"
-                                                    alt="GOHOTEL" class="swiper-lazy" /></li>
-                                            <li class="swiper-slide ahn_img1"> <img data-src="/userindex/img/시그니엘2-1.jpg"
-                                                alt="GOHOTEL" class="swiper-lazy" /></li>
-                                            <li class="swiper-slide ahn_img2"> <img data-src="/userindex/img/시그니엘2-2.jpg"
-                                                alt="GOHOTEL" class="swiper-lazy" /></li>
-                                            <li class="swiper-slide ahn_img3"> <img data-src="/userindex/img/시그니엘2-3.jpg"
-                                                alt="GOHOTEL" class="swiper-lazy" /></li>
-                                            <!--                                     <li class="swiper-slide"><img-->
-                                            <!--                                             data-src="/mainimages/gochank.jpg"-->
-                                            <!--                                             alt="역삼 컬리넌 | 로얄스위트" class="swiper-lazy" /></li>-->
-                                            <!--                                    <li class="swiper-slide"><img-->
-                                            <!--                                            data-src="//image.goodchoice.kr/resize_490x348/adimg_new/2084/13542/2cb69425b6745a6d3b32fd0e997b62a2.jpg"-->
-                                            <!--                                            alt="역삼 컬리넌 | 로얄스위트" class="swiper-lazy" /></li>-->
-
-                                        </ul>
-                                    </div>
-                                    <!-- Add Arrows -->
-                                    <div class="swiper-button-next"></div>
-                                    <div class="swiper-button-prev"></div>
-
-                                    <!-- //image.goodchoice.kr/resize_490x348/adimg_new/1491/8717/01.jpg? -->
-
-
+                                    </ul>
                                 </div>
-                            </span>
-                            <!-- 비제휴점 사진 -->
-                            <div class="inert_pic">
-                                <img src="/image.goodchoice.kr/resize_490x348/adimg_new/detail_none.jpg" alt="" />
+                                <div class="swiper-container gallery-thumbs">
+                                    <ul class="swiper-wrapper ">
+                                        <li class="swiper-slide ahn_img0"> <img data-src="/userindex/img/시그니엘2.jpg"
+                                                alt="GOHOTEL" class="swiper-lazy" /></li>
+                                        <li class="swiper-slide ahn_img1"> <img data-src="/userindex/img/시그니엘2-1.jpg"
+                                                alt="GOHOTEL" class="swiper-lazy" /></li>
+                                        <li class="swiper-slide ahn_img2"> <img data-src="/userindex/img/시그니엘2-2.jpg"
+                                                alt="GOHOTEL" class="swiper-lazy" /></li>
+                                        <li class="swiper-slide ahn_img3"> <img data-src="/userindex/img/시그니엘2-3.jpg"
+                                                alt="GOHOTEL" class="swiper-lazy" /></li>
+                                        <!--                                     <li class="swiper-slide"><img-->
+                                        <!--                                             data-src="/mainimages/gochank.jpg"-->
+                                        <!--                                             alt="역삼 컬리넌 | 로얄스위트" class="swiper-lazy" /></li>-->
+                                        <!--                                    <li class="swiper-slide"><img-->
+                                        <!--                                            data-src="//image.goodchoice.kr/resize_490x348/adimg_new/2084/13542/2cb69425b6745a6d3b32fd0e997b62a2.jpg"-->
+                                        <!--                                            alt="역삼 컬리넌 | 로얄스위트" class="swiper-lazy" /></li>-->
+
+                                    </ul>
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+
+                                <!-- //image.goodchoice.kr/resize_490x348/adimg_new/1491/8717/01.jpg? -->
+
+
+                            </div>
+                        </span>
+                        <!-- 비제휴점 사진 -->
+                        <div class="inert_pic">
+                            <img src="/image.goodchoice.kr/resize_490x348/adimg_new/detail_none.jpg" alt="" />
+                        </div>
+
+                </div>
+                <!-- //Left -->
+
+                <!-- Datepicker -->
+                <input type="text" class="product_date" />
+
+                <!-- Right -->
+                <div class="right">
+
+                    <!-- Info -->
+                    <span class="ahn_di_span">
+                        <div class="info">
+                            <p class="badge">
+                            </p>
+                            <!--                            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>-->
+                            <!--                            heart-->
+
+                            <!--//숙박업소명-->
+                            <h2 class="myCorporate">Deluxe Room</h2>
+                            <br><br>
+                            <p class="address mySidein1">512,000 KRW</p><br><br>
+                            <!-- 안연주 빈공간 -->
+                            <div style="margin-bottom: 20px;"></div>
+                            <!-- # 안연주 빈공간 끝-->
+                            <div class="">
+                                <p class="leading-7">서울 시내의 환상적인 전망이 어우러진 시그니엘 서울의 최고급 호텔 사우나, 헬스장, 실내 수영장은 새로운 힐링과 활력의
+                                    시간을 제안합니다. 투숙객 전용 라운지에서는 한강 전망을 바라보며 티 타임을 즐기실 수 있습니다.</p>
                             </div>
 
-                    </div>
-                    <!-- //Left -->
-
-                    <!-- Datepicker -->
-                    <input type="text" class="product_date" />
-
-                    <!-- Right -->
-                    <div class="right">
-
-                        <!-- Info -->
-                        <span class="ahn_di_span">
-                            <div class="info">
-                                <p class="badge">
-                                </p>
-                                <!--                            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>-->
-                                <!--                            heart-->
-
-                                <!--//숙박업소명-->
-                                <h2 class="myCorporate">Deluxe Room</h2>
-                                <br><br><p class="address mySidein1">512,000 KRW</p><br><br>
-                                <!-- 안연주 빈공간 -->
-                                <div style="margin-bottom: 20px;"></div>
-                                <!-- # 안연주 빈공간 끝-->
-                                <div class="">
-                                    <p class="leading-7">서울 시내의 환상적인 전망이 어우러진 시그니엘 서울의 최고급 호텔 사우나, 헬스장, 실내 수영장은 새로운 힐링과 활력의 시간을 제안합니다. 투숙객 전용 라운지에서는 한강 전망을 바라보며 티 타임을 즐기실 수 있습니다.</p>
-                                </div>
 
 
 
+                    </span>
+                    <!-- //Info -->
 
-                        </span>
-                        <!-- //Info -->
-
-
-                    </div>
-                    <!-- //Right -->
 
                 </div>
-                <!-- //Top -->
+                <!-- //Right -->
 
-                <!-- Tab Menu -->
-                <div class="tab">
-                    <button class="on"><span>예약날짜선택</span></button>
-                </div>
-
-                <div>
-                    <form class="mt-5 p-5">
-						체크인 <input class="form-control p-2 border mr-3" type="date" required>
-                        체크아웃 <input class="form-control p-2 border mr-3" type="date" required>
-						<input type="submit" class="bg-red-500 py-3 px-5 rounded text-white" value="저장">
-					</form>
-                </div>
             </div>
-            <div class="py-vh-5 w-100 overflow-hidden" id="services">
-                <div class="container">
-                   
+            <!-- //Top -->
+
+            <!-- Tab Menu -->
+            <div class="tab">
+                <button class="on"><span>예약날짜선택</span></button>
+            </div>
+
+            <div>
+                <form class="mt-5 p-5" action="http://localhost:8080/web/RoomBookCreate.jsp">
+                    <input type="hidden" id="ridx" name="ridx" />
+                    체크인 <input class="form-control p-2 border mr-3" name="startbook" type="date" required>
+                    체크아웃 <input class="form-control p-2 border mr-3" name="endbook" type="date" required>
+                    <input type="submit" class="bg-red-500 py-3 px-5 rounded text-white" value="저장">
+                </form>
+            </div>
+        </div>
+        <div class="py-vh-5 w-100 overflow-hidden" id="services">
+            <div class="container">
 
 
 
+                <script>
+                    document.getElementById('ridx').value=window.location.search.split('=')[1];
+                </script>
 
-                        <script src="../js/bootstrap.bundle.min.js"></script>
-                        <script src="../js/aos.js"></script>
-                        <script>
-                            AOS.init({
-                                duration: 800, // values from 0 to 3000, with step 50ms
-                            });
-                        </script>
+                <script src="../js/bootstrap.bundle.min.js"></script>
+                <script src="../js/aos.js"></script>
+                <script>
+                    AOS.init({
+                        duration: 800, // values from 0 to 3000, with step 50ms
+                    });
+                </script>
 
-                        <script>
-                            const booking_btn = document.getElementById('booking');
-                            booking_btn.addEventListener('click', function () {
-                                const section_filter_div = document.getElementById('section-filter');
-                                section_filter_div.className += ' show';
-                                section_filter_div.style.display = "block";
-                            });
-                            const btn_secondary = document.getElementById('cancle');
-                            btn_secondary.addEventListener('click', function () {
-                                const section_filter_div = document.getElementById('section-filter');
-                                section_filter_div.className = 'modal fade ';
-                                section_filter_div.style.display = "none";
-                            });
-
-
-
-                            let scrollpos = window.scrollY;
-                            const header = document.querySelector(".navbar");
-                            const header_height = header.offsetHeight;
-
-                            const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm");
-                            const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm");
-
-                            window.addEventListener('scroll', function () {
-                                scrollpos = window.scrollY;
-
-                                if (scrollpos >= header_height) { add_class_on_scroll(); }
-                                else { remove_class_on_scroll(); }
-
-                                console.log(scrollpos);
-                            });
+                <script>
+                    const booking_btn = document.getElementById('booking');
+                    booking_btn.addEventListener('click', function () {
+                        const section_filter_div = document.getElementById('section-filter');
+                        section_filter_div.className += ' show';
+                        section_filter_div.style.display = "block";
+                    });
+                    const btn_secondary = document.getElementById('cancle');
+                    btn_secondary.addEventListener('click', function () {
+                        const section_filter_div = document.getElementById('section-filter');
+                        section_filter_div.className = 'modal fade ';
+                        section_filter_div.style.display = "none";
+                    });
 
 
-                        </script>
 
-                        <!-- 예약 경고 -->
+                    let scrollpos = window.scrollY;
+                    const header = document.querySelector(".navbar");
+                    const header_height = header.offsetHeight;
 
+                    const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm");
+                    const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm");
+
+                    window.addEventListener('scroll', function () {
+                        scrollpos = window.scrollY;
+
+                        if (scrollpos >= header_height) { add_class_on_scroll(); }
+                        else { remove_class_on_scroll(); }
+
+                        console.log(scrollpos);
+                    });
+
+
+                </script>
+
+                <!-- 예약 경고 -->
+
+            </div>
+
+            <!-- 푸터 -->
+            <footer th:fragment="user-footer">
+                <div class="align">
+                    <ul class="link">
+                        <li><a href="http://www.withinnovation.co.kr/" target="_blank">회사소개</a><span>|</span></li>
+                        <li><a href="/userindex/terms" data-default="term">이용약관</a><span>|</span></li>
+                        <li><a href="/userindex/privacy" data-default="privacy">개인정보처리방침</a><span>|</span></li>
+                        <li><button type="button" onclick="pop_licence();return false;">사업자 정보확인</button><span>|</span>
+                        </li>
+                    </ul>
+                    <p>
+                        <b>고객센터 1122-3344</b>
+                        오전 9시 - 새벽 3시
+                    </p>
+                    <address>
+                        <span>(주) 이응주식회사</span>
+                        주소 : 서울특별시 강남구 봉은사로 479, 479타워 11층<br />
+                        대표이사 : 윤성훈 | 사업자등록번호: 742-86-00224<br />
+                        전화번호 : 1122-3344<br />
+                        전자우편주소 : help@goodchoice.kr<br />
+                    </address>
+
+
+                    <div class="ico">
+                        <a href="https://play.google.com/store/apps/details?id=kr.goodchoice.abouthere"
+                            class="footer_applink"><img src="/img/mainimages/googleplaystoreicon.png" alt="구글플레이스토어"
+                                class="footer_googleplaystore"></a>
+                        <a href="https://apps.apple.com/kr/app/yeogieottae-1deung-sugbag/id884043462?ign-mpt=uo%3D2"
+                            class="footer_applink"><img src="/img/mainimages/applestoreicon.png" alt="앱스토어"
+                                class="footer_appstore"></a>
                     </div>
 
- <!-- 푸터 -->
-<footer th:fragment="user-footer">
-    <div class="align">
-        <ul class="link">
-            <li><a href="http://www.withinnovation.co.kr/" target="_blank">회사소개</a><span>|</span></li>
-            <li><a href="/userindex/terms" data-default="term">이용약관</a><span>|</span></li>
-            <li><a href="/userindex/privacy" data-default="privacy">개인정보처리방침</a><span>|</span></li>
-            <li><button type="button" onclick="pop_licence();return false;">사업자 정보확인</button><span>|</span></li>
-        </ul>
-        <p>
-            <b>고객센터 1122-3344</b>
-            오전 9시 - 새벽 3시
-        </p>
-        <address>
-            <span>(주) 이응주식회사</span>
-            주소 : 서울특별시 강남구 봉은사로 479, 479타워 11층<br />
-            대표이사 : 윤성훈 | 사업자등록번호: 742-86-00224<br />
-            전화번호 : 1122-3344<br />
-            전자우편주소 : help@goodchoice.kr<br />
-        </address>
-
-
-        <div class="ico">
-            <a href="https://play.google.com/store/apps/details?id=kr.goodchoice.abouthere"  class="footer_applink"><img src="/img/mainimages/googleplaystoreicon.png" alt="구글플레이스토어" class="footer_googleplaystore"></a>
-            <a href="https://apps.apple.com/kr/app/yeogieottae-1deung-sugbag/id884043462?ign-mpt=uo%3D2" class="footer_applink"><img src="/img/mainimages/applestoreicon.png" alt="앱스토어"
-                                                                                                                                     class="footer_appstore"
-            ></a>
-        </div>
-   
-
-    </div>
-
-</footer>
-<!--푸터 끝 -->
 
                 </div>
 
-                <!-- 상단으로 -->
-                <button class="btn_go_top" onclick="moveTop();">상단으로</button>
+            </footer>
+            <!--푸터 끝 -->
 
-                <!-- //Wrap -->
+        </div>
 
-                <!-- Script -->
-                <!-- Library -->
-                <script type="text/javascript" src="/js/library/jquery.cookie.js"></script>
-                <script type="text/javascript" src="/js/library/jquery.lazyload.js"></script>
-                <script type="text/javascript" src="/js/library/iscroll.js"></script>
+        <!-- 상단으로 -->
+        <button class="btn_go_top" onclick="moveTop();">상단으로</button>
 
-                <!-- Service -->
-                <script type="text/javascript" src="/js/service/common.js"></script>
-                <script type="text/javascript" src="/js/service/geolocation.js"></script>
+        <!-- //Wrap -->
 
-                <!-- Module -->
-                <script type="text/javascript" src="/js/modules/dialogPopup.js"></script>
+        <!-- Script -->
+        <!-- Library -->
+        <script type="text/javascript" src="/js/library/jquery.cookie.js"></script>
+        <script type="text/javascript" src="/js/library/jquery.lazyload.js"></script>
+        <script type="text/javascript" src="/js/library/iscroll.js"></script>
 
-                <!-- Page Script -->
-                <script type="text/javascript" src="/js/library/jquery-ui.min.js"></script>
-                <script type="text/javascript" src="/js/library/jquery.ui.touch-punch.min.js"></script>
-                <script type="text/javascript" src="/js/library/jquery.comiseo.daterangepicker.min.js"></script>
-                <script type="text/javascript" src="/js/library/swiper.min.js"></script>
+        <!-- Service -->
+        <script type="text/javascript" src="/js/service/common.js"></script>
+        <script type="text/javascript" src="/js/service/geolocation.js"></script>
 
-                <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!-- Module -->
+        <script type="text/javascript" src="/js/modules/dialogPopup.js"></script>
 
-                <script type="text/javascript" src="/js/library/owl.carousel.min.js"></script>
-                <script type="text/javascript" src="/js/library/moment.js"></script>
-                <script type="text/javascript" src="/js/service/datepick.js"></script>
-                <script type="text/javascript" src="/js/library/vue.min.js"></script>
-                <!-- <script type="text/javascript" src="/dapi.kakao.com/v2/maps/sdk66c8.json?appkey=f6ffb505bb11d7cc3584d443ce35f704" ></script> -->
-                <!--    ↓ 객실안내/예약/숙소정보/리뷰 클릭버튼-->
-                <script type="text/javascript" src="/js/service/product.detail.js"></script>
-                <!-- Body Spinner -->
-                <div class="spinner show"><span></span></div>
-    </body>
+        <!-- Page Script -->
+        <script type="text/javascript" src="/js/library/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/js/library/jquery.ui.touch-punch.min.js"></script>
+        <script type="text/javascript" src="/js/library/jquery.comiseo.daterangepicker.min.js"></script>
+        <script type="text/javascript" src="/js/library/swiper.min.js"></script>
 
-    <!-- Mirrored from www.goodchoice.kr/product/detail?ano=2084&adcno=1&sel_date=2021-08-17&sel_date2=2021-08-18 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Aug 2021 17:08:38 GMT -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-    </html>
+        <script type="text/javascript" src="/js/library/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="/js/library/moment.js"></script>
+        <script type="text/javascript" src="/js/service/datepick.js"></script>
+        <script type="text/javascript" src="/js/library/vue.min.js"></script>
+        <!-- <script type="text/javascript" src="/dapi.kakao.com/v2/maps/sdk66c8.json?appkey=f6ffb505bb11d7cc3584d443ce35f704" ></script> -->
+        <!--    ↓ 객실안내/예약/숙소정보/리뷰 클릭버튼-->
+        <script type="text/javascript" src="/js/service/product.detail.js"></script>
+        <!-- Body Spinner -->
+        <div class="spinner show"><span></span></div>
+</body>
+
+<!-- Mirrored from www.goodchoice.kr/product/detail?ano=2084&adcno=1&sel_date=2021-08-17&sel_date2=2021-08-18 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Aug 2021 17:08:38 GMT -->
+
+</html>
