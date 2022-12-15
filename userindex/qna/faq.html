@@ -181,6 +181,24 @@
                         document.getElementById('nav_bar').innerHTML += '<li><a href="/userindex/user2/login.html">로그인</a></li>';
                         document.getElementById('nav_bar').innerHTML += '<input type="hidden" id="userid" class="userid">';
                     };
+
+
+
+                    axios.get('https://www.ec2.n-e.kr/QnaListLookup.jsp')
+                        .then((res) => {
+
+                            var json = res.data;
+                            console.log(json);
+
+                            for (var i = 0; i < json.length; i++) {
+
+                                document.getElementById('listup').innerHTML += '<li> <p class="link"><span>' + json[i].qtitle + '</span></p> <div class="ans"> <div> <font color="#252525" face="arial"> <span style="font-size: 13.3333px;">' + json[i].content + '</span></font> </div> <div> <font color="#252525" face="arial"> <span style="font-size: 13.3333px;"> <br></span></font> </div> </div></li>'
+                            }
+                        })
+                        .catch((err) => {
+                            console.error(err);
+                        });
+
                 });
 
 
@@ -258,24 +276,7 @@
 
 
     </div>
-    <script>
 
-        axios.get('https://www.ec2.n-e.kr/QnaListLookup.jsp')
-            .then((res) => {
-
-                var json = res.data;
-                console.log(json);
-
-                for (var i = 0; i < json.length; i++) {
-
-                    document.getElementById('listup').innerHTML += '<li> <p class="link"><span>' + json[i].qtitle + '</span></p> <div class="ans"> <div> <font color="#252525" face="arial"> <span style="font-size: 13.3333px;">' + json[i].content + '</span></font> </div> <div> <font color="#252525" face="arial"> <span style="font-size: 13.3333px;"> <br></span></font> </div> </div></li>'
-                }
-            })
-            .catch((err) => {
-                console.error(err);
-            });
-
-    </script>
 
     <!-- //Wrap -->
 
@@ -298,7 +299,6 @@
 
     <!-- Body Spinner -->
     <div class="spinner show"><span></span></div>
-
 
 </body>
 
