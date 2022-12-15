@@ -256,7 +256,7 @@
             var userid = localStorage.getItem('userid');
             localStorage.removeItem('userid');
             sessionStorage.removeItem('userid');
-            window.location.href = "https://www.ec2.n-e.kr/Logout.jsp?userid=" + userid
+            window.location.href = "http://www.ec2.n-e.kr/Logout.jsp?userid=" + userid
         };
 
         $(document).ready(function () {
@@ -277,7 +277,7 @@
 
 
 
-            axios.get('https://www.ec2.n-e.kr/QnaListLookup.jsp')
+            axios.get('http://www.ec2.n-e.kr/QnaListLookup.jsp')
                 .then((res) => {
 
                     var json = res.data;
